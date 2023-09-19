@@ -48,6 +48,8 @@ exports.addProjectTest = (req, res) => {
 
 exports.getAllProjects = (req, res) => {
     const { userID, skip, limit } = req.query
+    console.log(req.query)
+
     projects.find({ status: 'published', teamMembers: { $ne: userID } }, { subTasks: 0, teamMembers: 0 })
         .sort({ _id: -1 })
         .skip(parseInt(skip))

@@ -7,7 +7,10 @@ const mongoose = require('mongoose');
 const Connection = require('./Database/db.js');
 app.use('/Images', express.static('Images'))
 app.use('/Files', express.static('Files'))
-
+//npx node index.js
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
